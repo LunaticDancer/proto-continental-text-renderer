@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://be61k4uikerdr"]
+
+[ext_resource type="Script" uid="uid://shnrpqyr2qu7" path="res://text_renderer.gd" id="1_78erl"]
+[ext_resource type="Script" uid="uid://cqo7r276334rv" path="res://ui_controller.gd" id="1_fuknw"]
+[ext_resource type="Texture2D" uid="uid://dufinjqplwqjs" path="res://fonts/font_pixel.png" id="3_3w3s3"]
+[ext_resource type="Texture2D" uid="uid://cxbuffhyrjxl1" path="res://fonts/font_pixel_x4.png" id="4_2apv3"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_3w3s3"]
+
+[node name="UiRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fuknw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextToTranslate" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Type romanized proto-continental here..."
+emoji_menu_enabled = false
+
+[node name="FontSelection" type="MenuButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Click this to select font"
+item_count = 2
+popup/item_0/text = "Pixel"
+popup/item_0/checkable = 2
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Pixel Big"
+popup/item_1/checkable = 2
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Characters per line:"
+horizontal_alignment = 1
+
+[node name="CharactersPerLine" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "20"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Line margin (px):"
+horizontal_alignment = 1
+
+[node name="LineMargin" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text color:"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2231029, 0.2231029, 0.22310287, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "file name"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = ".png "
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "EXPORT"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = SubResource("ImageTexture_3w3s3")
+expand_mode = 1
+stretch_mode = 2
+script = ExtResource("1_78erl")
+fonts = Array[CompressedTexture2D]([ExtResource("3_3w3s3"), ExtResource("4_2apv3")])
+font_sizes = Array[Vector2i]([Vector2i(19, 6), Vector2i(76, 24)])
+
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/TextToTranslate" to="." method="_on_text_to_translate_text_changed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/FontSelection" to="." method="_on_font_selection_pressed"]
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/HBoxContainer/CharactersPerLine" to="." method="_on_characters_per_line_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/HBoxContainer3/LineMargin" to="." method="_on_line_margin_text_changed"]
+[connection signal="color_changed" from="HBoxContainer/VBoxContainer/HBoxContainer4/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_render_button_pressed"]
