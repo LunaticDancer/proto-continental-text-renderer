@@ -105,6 +105,8 @@ func is_vowel(letter : String):
 			return true
 		"i":
 			return true
+		"y":
+			return true
 	return false
 
 class Line:

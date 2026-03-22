@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://be61k4uikerdr"]
+[gd_scene format=3 uid="uid://be61k4uikerdr"]
 
 [ext_resource type="Script" uid="uid://shnrpqyr2qu7" path="res://text_renderer.gd" id="1_78erl"]
 [ext_resource type="Script" uid="uid://cqo7r276334rv" path="res://ui_controller.gd" id="1_fuknw"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="ImageTexture" id="ImageTexture_3w3s3"]
 
-[node name="UiRoot" type="Control"]
+[node name="UiRoot" type="Control" unique_id=1250547670]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fuknw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2021844459]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,18 +24,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=368480746]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextToTranslate" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+[node name="TextToTranslate" type="TextEdit" parent="HBoxContainer/VBoxContainer" unique_id=2075912461]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 placeholder_text = "Type romanized proto-continental here..."
 emoji_menu_enabled = false
 
-[node name="FontSelection" type="MenuButton" parent="HBoxContainer/VBoxContainer"]
+[node name="FontSelection" type="MenuButton" parent="HBoxContainer/VBoxContainer" unique_id=658596676]
 layout_mode = 2
 text = "Click this to select font"
 item_count = 2
@@ -47,76 +47,76 @@ popup/item_1/text = "Pixel Big"
 popup/item_1/checkable = 2
 popup/item_1/id = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=287571604]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2059505339]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Characters per line:"
 horizontal_alignment = 1
 
-[node name="CharactersPerLine" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CharactersPerLine" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1962899109]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "20"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1842708923]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=24738203]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Line margin (px):"
 horizontal_alignment = 1
 
-[node name="LineMargin" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="LineMargin" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=249213872]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "4"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=897479889]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=304651759]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Text color:"
 horizontal_alignment = 1
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="HBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1689074705]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.2231029, 0.2231029, 0.22310287, 1)
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=210133179]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=613067172]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "file name"
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=115590538]
 layout_mode = 2
 text = ".png "
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1040951339]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "EXPORT"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1999734588]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ScrollContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ScrollContainer" unique_id=692910184]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2

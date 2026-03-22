@@ -12,6 +12,12 @@ const ref : Array[String] = [
 
 func get_char_index(_char : String) -> int:
 	var index : int = ref.find(_char)
+	if(_char == "w"):
+		index = 28
+	if(_char == "y"):
+		index = 8
+	if(_char == "Y"):
+		index = 9
 	if index == -1:
 		return 0
 	return index
